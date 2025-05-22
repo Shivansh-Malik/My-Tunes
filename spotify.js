@@ -2,7 +2,7 @@ const playbar = document.querySelector(".playbar");
 let interval; // Store the background change interval
 
 async function getsongs() {
-    let a = await fetch("http://127.0.0.1:5500/songs/");
+    let a = await fetch("http://127.0.0.1:5500/My-Tunes/songs/");
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -42,7 +42,7 @@ const playmusic = (trackIndex) => {
     currentSongIndex = trackIndex % songs.length;
     if (currentSongIndex < 0) currentSongIndex = songs.length - 1;
 
-    currentAudio = new Audio("/songs/" + songs[currentSongIndex]);
+    currentAudio = new Audio("/My-Tunes/songs/" + songs[currentSongIndex]);
     currentAudio.play();
     play.src = "svg/pause.svg";
 
